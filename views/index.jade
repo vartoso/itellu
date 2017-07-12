@@ -10,7 +10,7 @@ block content
       // var performance = window.performance ;
 
       var canvas = document.createElement("canvas");
-      document.write("W: " + canvas.width+" H: "+canvas.height +"<br>");
+      document.write("W: " + screen.width+" H: "+screen.height +"<br>");
       var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
 
       document.write("<br> Renderer Regular: " + gl.getParameter(gl.RENDERER) + "<br>");
