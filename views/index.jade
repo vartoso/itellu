@@ -1,0 +1,45 @@
+extends layout
+
+
+
+block content
+  div
+    script.
+      document.write("<br> height : "+window.screen.availHeight+" width: "+window.screen.availWidth+" pixelDepth: "+window.screen.pixelDepth+"<br>");
+      //var performance = window.performance || window.mozPerformance || window.msPerformance || window.webkitPerformance || {};
+      // var performance = window.performance ;
+
+      var canvas = document.createElement("canvas");
+      var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+      gl.enable("WEBGL_debug_renderer_info");
+      var status = gl.isEnabled("WEBGL_debug_renderer_info");
+      document.write("<br> Renderer Regular: " + gl.getParameter(gl.RENDERER) + "<br>");
+      document.write("<br> Vendor Regular: " + gl.getParameter(gl.VENDOR) + "<br>");
+      document.write("<br> debug State: "+ status +"<br>")
+      document.write("<br> Renderer debugger: " + getUnmaskedInfo(gl).vendor + "<br>");
+      document.write("<br> Vendor debugger: " + getUnmaskedInfo(gl).renderer + "<br>");
+
+
+
+      function getUnmaskedInfo(gl) {
+          var unMaskedInfo = {
+              renderer: '',
+              vendor: ''
+          };
+
+          var dbgRenderInfo = gl.getExtension("WEBGL_debug_renderer_info");
+          if (dbgRenderInfo != null) {
+              unMaskedInfo.renderer = gl.getParameter(dbgRenderInfo.UNMASKED_RENDERER_WEBGL);
+              unMaskedInfo.vendor   = gl.getParameter(dbgRenderInfo.UNMASKED_VENDOR_WEBGL);
+          }
+
+          return unMaskedInfo;
+      }
+  
+
+              
+                  
+
+
+  
+  

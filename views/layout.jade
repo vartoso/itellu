@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script.
+        var test = this.navigator
+        document.write(JSON.stringify(this.navigator.userAgent))
+  body
+    block content
