@@ -15,6 +15,7 @@ block content
 
       document.write("<br> Renderer Regular: " + gl.getParameter(gl.RENDERER) + "<br>");
       document.write("<br> Vendor Regular: " + gl.getParameter(gl.VENDOR) + "<br>");
+      document.write("<br> gpu: " +gl.getParameter(7938)+"<br>");
       document.write("<br> debug State: "+ status +"<br>")
       document.write("<br> Renderer debugger: " + getUnmaskedInfo(gl).vendor + "<br>");
       document.write("<br> Vendor debugger: " + getUnmaskedInfo(gl).renderer + "<br>");
